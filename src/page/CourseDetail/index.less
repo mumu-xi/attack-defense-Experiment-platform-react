@@ -1,0 +1,52 @@
+.course-wrapper {
+    width: 100%;
+    height: 90vh;
+    background: url(../../assets/bg3.png) repeat;
+    overflow: auto;
+
+    .course-container {
+        width: 80%;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background: #fff;
+        overflow: hidden;
+
+        .course-img {
+            width: 50%;
+            overflow: hidden;
+            height: 250px;
+            float: left;
+            img {
+                height: 250px;
+            }
+        }
+
+        .course-detail {
+            float: left;
+            margin-left: 50px;
+            
+            .course-name {
+                font-size: 24px;
+            }
+            .course-fllower {
+                font-size: 16px;
+                margin: 20px 0;
+            }
+            .course-btns {
+                margin-top: 88px;
+            }
+        }
+        .course-desc {
+            margin-top: 270px;
+            &::before {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 1px;
+                background: #999;
+                margin: 20px 0 30px;
+            }
+        }
+        
+    }
+}
