@@ -1,0 +1,59 @@
+.experiment {
+    background: url(../../assets/bg3.png) repeat;
+    height: 90vh;
+    padding: 20px;
+}
+
+@width: 1080px;
+@gitbookWidth: 280px;
+@paddingLeft: 10px;
+@vncWidth: @width - @gitbookWidth - @paddingLeft * 2;
+@vncHeight: @vncWidth * (1080 / 1920); //2k屏幕分辨率
+
+.experiment-container {
+    position: relative;
+    width: @width;
+    height: calc(~'100% - 40px');
+    background: #FFF;
+    margin: 0 auto;
+    padding: 10px;
+}
+.link-back {
+    position: absolute;
+    height: 35px;
+    line-height: 30px;
+    width: @gitbookWidth - @paddingLeft;
+    left: 10px;
+    top: 10px;
+    background: #FFF;
+    z-index: 2;
+    border-bottom: 1px solid #E7E7E7;
+}
+.exp-gitbook {
+    width: @gitbookWidth;
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 0;
+
+    iframe {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.exp-vnc {
+    position: absolute;
+    width: @vncWidth;
+    // min-height: @vncHeight;  
+    left: @gitbookWidth + @paddingLeft;
+    top: 10px;
+    bottom: 0;
+    overflow: auto;
+
+    iframe {
+        min-height: @vncHeight;
+        height: calc(~'100% - 10px');
+        width: 100%;
+    }
+}

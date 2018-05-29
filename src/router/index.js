@@ -8,6 +8,7 @@ import CourseDetail from '../page/CourseDetail';
 import Paths from '../page/Paths';
 import Questions from '../page/Questions';
 import QuestionsDetail from '../page/QuestionsDetail';
+import Experiment from '../page/Experiment';
 
 
 
@@ -22,7 +23,8 @@ export default (
       <Route component={CourseDetail} path="/course/:id" />
       <Route component={Paths} path="/paths" />
       <Route component={Questions} path="/questions" />
-      <Route component={QuestionsDetail} path="/questions/:id" />      
+      <Route component={QuestionsDetail} path="/questions/:id" /> 
+      <Route component={Experiment} path="/experiment/:id" />     
       <Route path="*" component={PageNotFound}></Route>
     </Route>
   </Router>
