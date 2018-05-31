@@ -32,6 +32,7 @@ class IndexPage extends React.Component {
   submit = () => {
     const {  editorState } =this.state;
     let val = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+    // this.props.dispatch(actions.updateComment(val));
     console.log(val);
   }
   render(){
