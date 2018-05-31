@@ -24,12 +24,12 @@ class IndexPage extends React.Component {
               <span>精选项目课</span>
               <span>|</span>
               <span className="home-select-desc">动手中收获</span>
-              <Link to="/course" className="see-more">更多<Icon type="right" /></Link>
+              <Link to="/courses" className="see-more">更多<Icon type="right" /></Link>
             </div>
             <div className="learn-path-body ant-row">
               {
                 handpickCourse && handpickCourse.map(item => {
-                  return <CourseBox item={item} key={item.id} />;
+                  return <CourseBox item={item} key={item.id} {...this.props} />;
                 })
               }
             </div>
@@ -42,7 +42,7 @@ class IndexPage extends React.Component {
               <span>学习路径</span>
               <span>|</span>
               <span className="home-select-desc">精准而系统的学习路径，从0到大牛</span>
-              <Link to="/course" className="see-more">更多<Icon type="right" /></Link>
+              <Link to="/courses" className="see-more">更多<Icon type="right" /></Link>
             </div>
             <div className="learn-path-body ant-row">
               {

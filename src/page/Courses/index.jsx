@@ -30,7 +30,7 @@ class IndexPage extends React.Component {
           <div className="ant-row">
             {
               courses && courses.map(item => {
-                return <CourseBox item={item} key={item.id} />;
+                return <CourseBox item={item} key={item.id} {...this.props}/>;
               })
             }
           </div>

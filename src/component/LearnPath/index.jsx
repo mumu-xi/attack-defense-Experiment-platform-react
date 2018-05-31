@@ -6,7 +6,6 @@ class LearnPathBox extends React.Component {
   handleClick = (item) => {
     if (item.href) {
       let anchorElement = document.getElementById(item.href);
-      console.log(anchorElement);
       if(anchorElement) { anchorElement.scrollIntoView();} 
     }
   } 

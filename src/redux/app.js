@@ -12,6 +12,7 @@ import {
   insertComm2CartUrl,
   findorderUrl
 } from '../config';
+import { courses } from '../../config/listMap';
 
 const TYPES = {
   login: Symbol('login'),
@@ -176,7 +177,16 @@ const actions = {
       });
   },
 
-  
+  updateCourseDetail: (id) => dispatch =>{
+    let data = courses[id];
+    
+    dispatch({
+      type: TYPES.uploadData,
+      payload: {
+        singleCourseDetail: data
+      }
+    });
+  },
   searchCartInfo: (data) => (dispatch) => { // 查询用户购物车
     getUrl(getCartInfoUrl, {
       headers: {

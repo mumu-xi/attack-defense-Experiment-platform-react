@@ -24,40 +24,40 @@ class IndexPage extends React.Component {
           </div>
           <div className="path-header" name="first-step">
             <a name="first-step" id="first-step">新手入门</a>
-            <Link to="/course" className="see-more">更多<Icon type="right" /></Link>
+            <Link to="/courses" className="see-more">更多<Icon type="right" /></Link>
           </div>
           <div className="ant-row">
             {
               courses && courses.slice(0,4).map(item => {
-                return <CourseBox item={item} key={item.id} />;
+                return <CourseBox item={item} key={item.id} {...this.props}/>;
               })
             }
           </div>
           <div className="path-header">
             <a name="second-step" id="second-step">进阶课程</a>
-            <Link to="/course" className="see-more">更多<Icon type="right" /></Link>
+            <Link to="/courses" className="see-more">更多<Icon type="right" /></Link>
           </div>
           <div className="ant-row">
             {
               courses && courses.slice(1,5).map(item => {
-                return <CourseBox item={item} key={item.id} />;
+                return <CourseBox item={item} key={item.id} {...this.props}/>;
               })
             }
           </div>
           <div className="path-header">
             <a name="third-step" id="third-step">高阶课程</a>
-            <Link to="/course" className="see-more">更多<Icon type="right" /></Link>
+            <Link to="/courses" className="see-more">更多<Icon type="right" /></Link>
           </div>
           <div className="ant-row">
             {
               courses && courses.slice(2,6).map(item => {
-                return <CourseBox item={item} key={item.id} />;
+                return <CourseBox item={item} key={item.id} {...this.props}/>;
               })
             }
           </div>
           <div className="path-header" id="last-step">
             <a name="last-step" id="last-step">成为大牛</a>
-            <Link to="/course" className="see-more">更多<Icon type="right" /></Link>
+            <Link to="/courses" className="see-more">更多<Icon type="right" {...this.props}/></Link>
           </div>
           <div className="ant-row">
             {

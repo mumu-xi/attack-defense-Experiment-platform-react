@@ -14,6 +14,8 @@ class Experiment extends Component {
     history.back();
   }
   render() {
+    let textLink = `http://doc.always-online.club/detail/0${this.props.params.id}.html`;
+
     return <div className="experiment">
       <div className="experiment-container">
         <div className="link-back">
@@ -23,6 +25,7 @@ class Experiment extends Component {
         </div>
         <div className="exp-gitbook">
           <iframe src="http://doc.always-online.club/detail/SQL-injection-attack-training.html" frameBorder={0}/>
+          {/* <iframe src={`${textLink}`} frameBorder={0}/> */}
         </div>
         <div className="exp-vnc">
           <iframe src="http://47.100.49.235:6080/vnc.html?host=47.100.49.235&port=6080" frameBorder={0}/>

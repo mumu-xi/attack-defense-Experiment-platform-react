@@ -67,7 +67,7 @@ class Header extends React.Component {
     return(
       <div>
         <div className="headerWrapper">
-          <div className="logo"></div>
+          <Link to="/index" className="logo"/>
           <Menu
             onClick={this.handleClick}
             selectedKeys={[this.state.current]}
@@ -80,11 +80,11 @@ class Header extends React.Component {
             <Menu.Item>
               <Link to="/paths">路径</Link>
             </Menu.Item>
-            {/* <Menu.Item>
-              <Link to="/contests">比赛</Link>
-            </Menu.Item> */}
             <Menu.Item>
               <Link to="/questions">讨论</Link>
+            </Menu.Item>
+            <Menu.Item>
+              <a href="http://doc.always-online.club/detail/" target="_black">文档</a>
             </Menu.Item>
           </Menu>
           {
