@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { hashHistory } from 'react-router';
-import {actions} from '../../redux/app';
+import { Link } from 'react-router';
+// import {actions} from '../../redux/app';
 import './index.less';
 import {Icon, Button, Rate} from 'antd';
 
@@ -30,7 +30,7 @@ class IndexPage extends React.Component {
       followerNum: '10',
       rateVal: 2.5
     };
-    // const {data} = this.props; 
+    const {params} = this.props; 
     return(
       <div className="course-wrapper">
         <div className="course-container">
@@ -43,7 +43,7 @@ class IndexPage extends React.Component {
             <Rate value={data.rateVal} disabled={false}/>
             <div className="course-btns">
               <Button style={{marginRight: 20}}><a href="http://10.96.82.154:4000/detail/weblogic.html" target="_black">查看文档</a></Button>
-              <Button type="primary">开始实验</Button>
+              <Button type="primary"><Link to={`/experiment/${params.id}`}>开始实验</Link></Button>
             </div>
           </div>
           <div className="course-desc">{data.desc}</div>
