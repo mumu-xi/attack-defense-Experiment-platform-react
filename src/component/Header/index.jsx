@@ -27,7 +27,7 @@ class Header extends React.Component {
     });
   }
 
-  handleLogin = e => {
+  handleLogin = e => {    
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -118,8 +118,8 @@ class Header extends React.Component {
                     </Menu>
                   }
                 >
-                  <div style={{float: 'right'}}>
-                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                  <div className="avatar-wrapper">
+                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" size="large"/>
                     <span>{username}</span>
                   </div>
                 </Dropdown>

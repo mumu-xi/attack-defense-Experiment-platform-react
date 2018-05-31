@@ -49,88 +49,117 @@ const initialState = {
 };
 
 const actions = {
-  login: data => dispatch => { //登录
-    getUrl(loginUrl, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data), 
-      method: 'POST'
-    }).then(res => {
-      const { data, success, error} = res;
-      if(error){
-        notification.open({
-          message: error,
-        });
-      }else if(data && success){
-        notification.open({
-          message: '登录成功',
-        });
-        dispatch({
-          type: TYPES.uploadData,
-          payload: {
-            isLogin: true,
-            username: data.username
-          }
-        });
+  login: () => dispatch => {
+    dispatch({
+      type: TYPES.uploadData,
+      payload: {
+        isLogin: true,
       }
-    }).catch( () =>{
-      notification.open({
-        message: '后台请求失败',
-      });
     });
   },
-  register: values => dispatch => { // 注册
-    getUrl(registerUrl, {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(values), 
-      method: 'POST'
-    }).then(res => {
-      const { data, success, error } = res;
-      if(error){
-        notification.open({
-          message: error,
-        });
-      }else if(data && success){
-        notification.open({
-          message: '注册成功,正在为你登录',
-        });
-        dispatch(actions.login(values));
-      }
-    }).catch( () =>{
-      notification.open({
-        message: '后台请求失败',
-      });
-    });
-  },
-  logout: () => dispatch =>{ // 退出
-    getUrl(logoutUrl)
-      .then(res => {
-        const { error} = res;
-        if(error){
-          notification.open({
-            message: '退出失败',
-          });
-        }else{
-          notification.open({
-            message: '退出成功',
-          });
-        }
-      }).catch(() => {
-        notification.open({
-          message: '无法连接到后台服务器',
-        });
-      });
+  logout: () => dispatch => {
     dispatch({
       type: TYPES.uploadData,
       payload: {
         isLogin: false,
-        username: ''
       }
     });
   },
+  register: () => dispatch => {
+    notification.open({
+      message: '注册成功,正在为你登录',
+    });
+    setInterval(()=> {
+      dispatch({
+        type: TYPES.uploadData,
+        payload: {
+          isLogin: true,
+        }
+      });
+    },1000);
+  },
+  // login: data => dispatch => { //登录
+  //   getUrl(loginUrl, {
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(data), 
+  //     method: 'POST'
+  //   }).then(res => {
+  //     const { data, success, error} = res;
+  //     if(error){
+  //       notification.open({
+  //         message: error,
+  //       });
+  //     }else if(data && success){
+  //       notification.open({
+  //         message: '登录成功',
+  //       });
+  //       dispatch({
+  //         type: TYPES.uploadData,
+  //         payload: {
+  //           isLogin: true,
+  //           username: data.username
+  //         }
+  //       });
+  //     }
+  //   }).catch( () =>{
+  //     notification.open({
+  //       message: '后台请求失败',
+  //     });
+  //   });
+  // },
+  // register: values => dispatch => { // 注册
+  //   getUrl(registerUrl, {
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(values), 
+  //     method: 'POST'
+  //   }).then(res => {
+  //     const { data, success, error } = res;
+  //     if(error){
+  //       notification.open({
+  //         message: error,
+  //       });
+  //     }else if(data && success){
+  //       notification.open({
+  //         message: '注册成功,正在为你登录',
+  //       });
+  //       dispatch(actions.login(values));
+  //     }
+  //   }).catch( () =>{
+  //     notification.open({
+  //       message: '后台请求失败',
+  //     });
+  //   });
+  // },
+  // logout: () => dispatch =>{ // 退出
+  //   getUrl(logoutUrl)
+  //     .then(res => {
+  //       const { error} = res;
+  //       if(error){
+  //         notification.open({
+  //           message: '退出失败',
+  //         });
+  //       }else{
+  //         notification.open({
+  //           message: '退出成功',
+  //         });
+  //       }
+  //     }).catch(() => {
+  //       notification.open({
+  //         message: '无法连接到后台服务器',
+  //       });
+  //     });
+  //   dispatch({
+  //     type: TYPES.uploadData,
+  //     payload: {
+  //       isLogin: false,
+  //       username: ''
+  //     }
+  //   });
+  // },
   searchAllCourseList: () => (dispatch) => {// 获取所有课程信息
     getUrl(getAllCourseListUrl)
       .then(res=>{
