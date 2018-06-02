@@ -24,8 +24,8 @@ class Experiment extends Component {
           </a>
         </div>
         <div className="exp-gitbook">
-          <iframe src="http://doc.always-online.club/detail/SQL-injection-attack-training.html" frameBorder={0}/>
-          {/* <iframe src={`${textLink}`} frameBorder={0}/> */}
+          {/* <iframe src="http://doc.always-online.club/detail/SQL-injection-attack-training.html" frameBorder={0}/> */}
+          <iframe src={`${textLink}`} frameBorder={0}/>
         </div>
         <div className="exp-vnc">
           <iframe src="http://47.100.49.235:6080/vnc.html?host=47.100.49.235&port=6080" frameBorder={0}/>
